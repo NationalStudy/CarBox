@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615165554) do
+ActiveRecord::Schema.define(version: 20160615170854) do
 
   create_table "details", force: :cascade do |t|
     t.string   "nameDetail"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(version: 20160615165554) do
   end
 
   add_index "details", ["order_id"], name: "index_details_on_order_id"
+
+  create_table "masters", force: :cascade do |t|
+    t.string   "master"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "operations", force: :cascade do |t|
     t.string   "name"
@@ -51,6 +57,7 @@ ActiveRecord::Schema.define(version: 20160615165554) do
     t.date     "dateStart"
     t.date     "dateEnd"
     t.integer  "box"
+    t.integer  "master_id"
   end
 
 end

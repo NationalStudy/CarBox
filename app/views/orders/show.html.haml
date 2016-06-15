@@ -1,17 +1,49 @@
 = image_tag @order.image.url(:medium, class: 'order_image')
+%h4 Full name:
 %p= @order.fullName
+
+%h4 Number tel.:
 %p= @order.numTel
+
+%h4 Address:
 %p= @order.address
+
+%h4 Full license:
 %p= @order.license
+
+%h4 Car Brand:
 %p= @order.carBrand
+
+%h4 Number Auto:
 %p= @order.numAuto
+
+%h4 Year release:
 %p= @order.year
+
+%h4 Scope engine:
 %p= @order.scope
+
+%h4 Date order:
 %p= @order.dateOrder
+
+%h4 Date of start:
 %p= @order.dateStart
+
+%h4 Date of end:
 %p= @order.dateEnd
+
+%h4 Box number:
 %p= @order.box
+
+%h4 Master:
+%p= @order.master_id
 
 = link_to 'Back', root_path, class: 'btn btn-default'
 = link_to 'Edit', edit_order_path, class: 'btn btn-default'
 = link_to 'Delete', order_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
+
+%br
+%br
+%br
+%br
+%br

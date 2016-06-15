@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
   has_many :operations
   has_many :details
-
+  belongs_to :master
   accepts_nested_attributes_for :operations,
   															reject_if: proc { |attributes| attributes['name'].blank? },
   															allow_destroy: true

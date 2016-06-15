@@ -46,6 +46,6 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:image, :fullName, :numTel, :address, :license, :carBrand, :numAuto, :year, :scope, :dateOrder, :dateStart, :dateEnd, :box, operations_attributes: [:id, :name, :_destroy], details_attributes: [:id, :nameDetail, :_destroy])
+    params.require(:order).permit(:image, :fullName, :numTel, :address, :license, :carBrand, :numAuto, :year, :scope, :dateOrder, :dateStart, :dateEnd, :box, :master_id, operations_attributes: [:id, :name, :_destroy], details_attributes: [:id, :nameDetail, :_destroy])
   end
 end

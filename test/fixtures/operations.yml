@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  specialization: MyString
+  dateStart: 2016-06-15
+  dateEnd: 2016-06-15
+  box: 1
+  order_id: 
+
+two:
+  name: MyString
+  specialization: MyString
+  dateStart: 2016-06-15
+  dateEnd: 2016-06-15
+  box: 1
+  order_id: 

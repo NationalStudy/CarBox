@@ -1,3 +1,9 @@
-- @order.each do |order|
-  %h2= link_to order.fullName, order
-  %h3= order.address
+- @order.each_slice(3) do |orders|
+  .row
+    - orders.each do |order|
+      .col-md-4
+        .order
+          .image_wrapper
+            = link_to order do
+              = image_tag order.image.url(:medium)
+          %h2= link_to order.fullName, order

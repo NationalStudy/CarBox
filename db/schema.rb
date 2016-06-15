@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615113911) do
+ActiveRecord::Schema.define(version: 20160615165554) do
+
+  create_table "details", force: :cascade do |t|
+    t.string   "nameDetail"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "details", ["order_id"], name: "index_details_on_order_id"
+
+  create_table "operations", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "operations", ["order_id"], name: "index_operations_on_order_id"
 
   create_table "orders", force: :cascade do |t|
     t.string   "fullName"
@@ -23,9 +41,16 @@ ActiveRecord::Schema.define(version: 20160615113911) do
     t.integer  "year"
     t.float    "scope"
     t.date     "dateOrder"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "user_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.date     "dateStart"
+    t.date     "dateEnd"
+    t.integer  "box"
   end
 
 end

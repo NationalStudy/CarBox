@@ -12,9 +12,35 @@
     = f.input :numTel, input_html: { class: 'form-control' }
     = f.input :address, input_html: { class: 'form-control' }
     = f.input :license, input_html: { class: 'form-control' }
+    %br
+    = f.input :image, input_html: { class: 'form-control' }
+    %br
+    = f.input :carBrand, input_html: { class: 'form-control' }
     = f.input :numAuto, input_html: { class: 'form-control' }
     = f.input :year, input_html: { class: 'form-control' }
     = f.input :scope, input_html: { class: 'form-control' }
+    %br
     = f.input :dateOrder, input_html: { class: 'form-control' }
+    = f.input :dateStart, input_html: { class: 'form-control' }
+    = f.input :dateEnd, input_html: { class: 'form-control' }
+    = f.input :box, input_html: { class: 'form-control' }
+
+    .row
+      .col-md-6
+        %h3 Operations
+        #operations
+          = f.simple_fields_for :operations do |operation|
+            = f.input :operation
+            = render 'operation_fields', f: operation
+          .links
+            = link_to_add_association 'Add operation', f, :operations, class: "btn btn-default add-button"
+
+      .col-md-6
+        %h3 Details
+        #details
+          = f.simple_fields_for :details do |detail|
+            = render 'detail_fields', f: detail
+          .links
+            = link_to_add_association 'Add detail', f, :details, class: "btn btn-default add-button"
 
     = f.button :submit, class: 'btn btn-primary'

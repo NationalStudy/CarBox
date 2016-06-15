@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fullName: 
+  numTel: MyString
+  address: MyString
+  license: MyString
+  carBrand: MyString
+  year: 1
+  scope: 1.5
+  dateOrder: 2016-06-15
+
+two:
+  fullName: 
+  numTel: MyString
+  address: MyString
+  license: MyString
+  carBrand: MyString
+  year: 1
+  scope: 1.5
+  dateOrder: 2016-06-15

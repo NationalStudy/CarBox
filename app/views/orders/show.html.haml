@@ -1,0 +1,13 @@
+%h3= @order.fullName
+%h3= @order.numTel
+%h3= @order.address
+%h3= @order.license
+%h3= @order.carBrand
+%h3= @order.numAuto
+%h3= @order.year
+%h3= @order.scope
+%h3= @order.dateOrder
+
+= link_to 'Back', root_path, class: 'btn btn-default'
+= link_to 'Edit', edit_order_path, class: 'btn-default'
+= link_to 'Delete', order_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'

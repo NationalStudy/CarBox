@@ -1,0 +1,12 @@
+= link_to 'New master', new_master_path, class: 'btn btn-default'
+%br
+%br
+%br
+%br
+%br
+%br
+All masters:
+%hr
+- @masters.each do |master|
+  .message
+    .message-title= link_to master.nameMaster, master_path(master)

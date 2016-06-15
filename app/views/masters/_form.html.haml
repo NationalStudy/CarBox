@@ -1,0 +1,18 @@
+= simple_form_for @master, html: { multipart: true } do |f|
+  - if @master.errors.any?
+    #errors
+      %p
+        = @master.errors.count
+        Prevented this master froms saving
+      %ul
+        - @master.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :master, input_html: { class: 'form-control' }
+    = f.input :nameMaster, input_html: { class: 'form-control' }
+    = f.input :telNum, input_html: { class: 'form-control' }
+    = f.input :addressMaster, input_html: { class: 'form-control' }
+    %br
+    %br
+    %br
+    = f.button :submit, class: 'btn btn-primary'

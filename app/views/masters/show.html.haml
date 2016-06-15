@@ -1,0 +1,21 @@
+%h4 Full name:
+%p= @master.nameMaster
+
+%h4 Number tel.:
+%p= @master.telNum
+
+%h4 Address:
+%p= @master.addressMaster
+
+%h4 Master:
+%p= @master.master
+
+= link_to 'Back', root_path, class: 'btn btn-default'
+= link_to 'Edit', edit_master_path, class: 'btn btn-default'
+= link_to 'Delete', master_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
+
+%br
+%br
+%br
+%br
+%br

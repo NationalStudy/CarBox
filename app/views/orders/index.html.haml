@@ -6,4 +6,5 @@
           .image_wrapper
             = link_to order do
               = image_tag order.image.url(:medium)
-          %h2= link_to order.fullName, order
+          %h2= link_to order.carBrand, order
+          %h2= link_to order.numAuto, order

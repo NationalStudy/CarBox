@@ -1,0 +1,12 @@
+= link_to 'New provider', new_provider_path, class: 'btn btn-default'
+%br
+%br
+%br
+%br
+%br
+%br
+All providers:
+%hr
+- @providers.each do |provider|
+  .message
+    .message-title= link_to provider.nameOrganization, provider_path(provider)

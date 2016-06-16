@@ -1,0 +1,21 @@
+%h4 nameOrganization:
+%p= @provider.nameOrganization
+
+%h4 Number tel.:
+%p= @provider.telNumber
+
+%h4 Address:
+%p= @provider.address
+
+%h4 City:
+%p= @provider.city
+
+= link_to 'Back', root_path, class: 'btn btn-default'
+= link_to 'Edit', edit_provider_path, class: 'btn btn-default'
+= link_to 'Delete', provider_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'
+
+%br
+%br
+%br
+%br
+%br

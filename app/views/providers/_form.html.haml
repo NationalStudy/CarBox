@@ -1,0 +1,18 @@
+= simple_form_for @provider, html: { multipart: true } do |f|
+  - if @provider.errors.any?
+    #errors
+      %p
+        = @provider.errors.count
+        Prevented this provider froms saving
+      %ul
+        - @provider.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :nameOrganization, input_html: { class: 'form-control' }
+    = f.input :telNumber, input_html: { class: 'form-control' }
+    = f.input :address, input_html: { class: 'form-control' }
+    = f.input :city, input_html: { class: 'form-control' }
+    %br
+    %br
+    %br
+    = f.button :submit, class: 'btn btn-primary'

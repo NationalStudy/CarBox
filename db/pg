@@ -1,0 +1,112 @@
+CREATE DOMAIN CURRENT_UNIX_TIMESTAMP AS TIMESTAMP DEFAULT current_timestamp;
+
+CREATE TABLE clients (
+    "id" SERIAL NOT NULL,
+    "fullName" NOT NULL,
+    "telNumber" NOT NULL,
+    "license" NOT NULL
+);
+
+CREATE TABLE cars (
+    "id" SERIAL NOT NULL,
+    "vin" NOT NULL,
+    "carBrand" NOT NULL,
+    "numAuto" NOT NULL,
+    "created_at" CURRENT_UNIX_TIMESTAMP
+);
+
+CREATE TABLE orders (
+    "id" SERIAL NOT NULL,
+    "dateOrder" NOT NULL,
+    "created_at" CURRENT_UNIX_TIMESTAMP
+);
+
+CREATE TABLE operations (
+    "id" SERIAL NOT NULL,
+    "nameOperation" NOT NULL,
+    "specialization" NOT NULL,
+    "detail" NOT NULL
+);
+
+CREATE TABLE masters (
+    "master_id" INTEGER NOT NULL,
+    "fullName" NOT NULL,
+    "telNumber" NOT NULL,
+    "address" NOT NULL,
+    "specialization" NOT NULL
+);
+
+CREATE TABLE invoices (
+    "fullNameDetail" UNIQUE NOT NULL,
+    "priceDetail" INTEGER NOT NULL
+);
+
+CREATE TABLE list_operations (
+    "operation_id" SERIAL INTEGER NOT NULL,
+    "price INTEGER" NOT NULL
+);
+
+CREATE TABLE details_category (
+    "nameCategory" UNIQUE NOT NULL,
+    "category_id" INTEGER NOT NULL
+);
+
+CREATE TABLE provaiders_list (
+    "organization_id" SERIAL NOT NULL,
+    "nameOrganization" NOT NULL,
+    "telNum" UNIQUE NOT NULL,
+    "address" NOT NULL,
+    "city" NOT NULL
+);
+
+
+ALTER TABLE ONLY clients
+    ADD CONSTRAINT clients_pkey PRIMARY KEY (client_id);
+
+ALTER TABLE ONLY cars
+    ADD CONSTRAINT cars_pkey PRIMARY KEY (car_id);
+
+ALTER TABLE ONLY orders
+    ADD CONSTRAINT orders_pkey PRIMARY KEY (order_id);
+
+ALTER TABLE ONLY operations
+    ADD CONSTRAINT operations_pkey PRIMARY KEY (operation_id);
+
+ALTER TABLE ONLY masters
+    ADD CONSTRAINT masters_pkey PRIMARY KEY (master_id);
+
+ALTER TABLE ONLY invoices
+    ADD CONSTRAINT invoices_pkey PRIMARY KEY (invoices);
+
+ALTER TABLE ONLY list_operations
+    ADD CONSTRAINT list_operations_pkey PRIMARY KEY (list_operation_id);
+
+ALTER TABLE ONLY details_category
+    ADD CONSTRAINT details_category_pkey PRIMARY KEY (category_id);
+
+ALTER TABLE ONLY provaiders_list
+    ADD CONSTRAINT provaiders_list_pkey PRIMARY KEY (list_id);
+
+ALTER TABLE cars
+    ADD CONSTRAINT cars_fkey FOREIGN KEY(client_id) REFERENCES clients(client_id) ON DELETE CASCADE;
+
+ALTER TABLE orders
+    ADD CONSTRAINT orders_fkey FOREIGN KEY(car_id) REFERENCES cars(car_id) ON DELETE CASCADE;
+
+ALTER TABLE operations
+    ADD CONSTRAINT operations_fkey FOREIGN KEY(order_id) REFERENCES orders(order_id) ON DELETE CASCADE;
+
+ALTER TABLE masters
+    ADD CONSTRAINT masters_fkey FOREIGN KEY(operation_id) REFERENCES operations(operation_id) ON DELETE CASCADE;
+
+ALTER TABLE invoices
+    ADD CONSTRAINT invoices_fkey FOREIGN KEY(operation_id) REFERENCES operations(operation_id) ON DELETE CASCADE;
+
+ALTER TABLE list_operations
+    ADD CONSTRAINT list_operations_fkey FOREIGN KEY(master_id) REFERENCES masters(master_id) ON DELETE CASCADE;
+
+ALTER TABLE details_category
+    ADD CONSTRAINT details_category_fkey FOREIGN KEY(operation_id) REFERENCES operations(operation_id) ON DELETE CASCADE;
+
+ALTER TABLE provaiders_list
+    ADD CONSTRAINT provaiders_list_fkey FOREIGN KEY(category_id) REFERENCES details_category(category_id) ON DELETE CASCADE;
